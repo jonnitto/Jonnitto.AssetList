@@ -28,6 +28,7 @@
   properties:
     forceDownload:
       type: boolean
+      defaultValue: true
       ui:
         label: i18n
         inspector:
@@ -40,6 +41,7 @@
   properties:
     thumbnail:
       type: boolean
+      defaultValue: true
       ui:
         label: i18n
         reloadIfChanged: true
