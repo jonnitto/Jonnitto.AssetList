@@ -38,7 +38,7 @@ prototype(Jonnitto.AssetList:Image) < prototype(Fusion:Tag) {
 	tagName = 'img'
 
 	attributes {
-		class = 'img-asset-thumbnail'
+		class = ${namespace + '--img'}
 		title = ${title}
 		alt = ${alternativeText}
 		src = ImageUri

@@ -3,17 +3,20 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Fusion:Tag) {
 	editable = true
 	forceDownload = ${q(node).property('forceDownload')}
 	thumbnail = ${q(node).property('thumbnail')}
+	namespace = 'assets-list'
 
 	@context {
 		assets = ${this.assets}
 		editable = ${this.editable}
 		forceDownload = ${this.forceDownload}
 		thumbnail = ${this.thumbnail}
+		namespace = ${this.namespace}
 	}
 
-	attributes.class {
-		assets = ${assets ? 'assets-count-' + Array.length(assets): false}
-		thumbnail = ${'assets-list-' + (thumbnail ? 'thumbnail' : 'text')}
+	attributes.class = Fusion:RawArray {
+		list = ${namespace}
+		assets = ${assets ? namespace + '--count-' + Array.length(assets): false}
+		thumbnail = ${namespace + (thumbnail ? '--thumbnail' : '--text')}
 	}
 
 	content = Fusion:Case {

@@ -2,8 +2,8 @@ prototype(Jonnitto.AssetList:File) < prototype(Fusion:Tag) {
 	tagName = 'a'
 	attributes {
 		class = Fusion:RawArray {
-			fileextension = ${'asset-type-' + asset.resource.fileextension}
-			type = ${'asset-item-' + (thumbnail ? 'thumbnail' : 'text')}
+			fileextension = ${namespace + '--type-' + asset.resource.fileextension}
+			type = ${namespace + '--item-' + (thumbnail ? 'thumbnail' : 'text')}
 		}
 		target = Fusion:Case {
 			isForceDownload {
@@ -50,6 +50,4 @@ prototype(Jonnitto.AssetList:File) < prototype(Fusion:Tag) {
 			renderer = Jonnitto.AssetList:FileNameText
 		}
 	}
-
-
 }
