@@ -29,8 +29,8 @@ prototype(Jonnitto.AssetList:Image) < prototype(Fusion:Tag) {
 		asset = ${asset}
 		allowCropping = ${allowCropping}
 		allowUpScaling = ${allowUpScaling}
-		maximumWidth = ${width ? null : maximumWidth * this.multiplicator}
-		maximumHeight = ${height ? null : maximumHeight * this.multiplicator}
+		maximumWidth = ${width ? false : maximumWidth * this.multiplicator}
+		maximumHeight = ${height ? false : maximumHeight * this.multiplicator}
 		width = ${width * this.multiplicator}
 		height = ${height * this.multiplicator}
 	}
