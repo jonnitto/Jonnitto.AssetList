@@ -1,0 +1,11 @@
+prototype(Jonnitto.AssetList:FileName) < prototype(Fusion:Case) {
+	hasThumbnail {
+		condition = ${thumbnail ? true : false}
+		renderer = Jonnitto.AssetList:FileNameThumbnail
+	}
+
+	default {
+		condition = true
+		renderer = Jonnitto.AssetList:FileNameText
+	}
+}

@@ -1,0 +1,22 @@
+Jonnitto:
+  AssetList:
+    externalTarget: _blank
+    assetExternal: 'image,video,pdf'
+    thumbnail:
+      headlineTag: h2
+      width: 200
+
+Neos:
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          Jonnitto.AssetList:
+            - 'NodeTypes/*'
+    fusion:
+      autoInclude:
+        Jonnitto.AssetList: true
+  Flow:
+    mvc:
+      routes:
+        'Jonnitto.AssetList': true

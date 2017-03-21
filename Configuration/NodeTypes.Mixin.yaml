@@ -1,0 +1,47 @@
+'Jonnitto.AssetList:Group':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        resources:
+          label: i18n
+          position: 5
+          icon: icon-files-o
+
+'Jonnitto.AssetList:Assets':
+  abstract: true
+  superTypes:
+    'Jonnitto.AssetList:Group': true
+  properties:
+    assets:
+      type: array<Neos\Media\Domain\Model\Asset>
+      ui:
+        inspector:
+          group: resources
+        label: i18n
+        reloadIfChanged: true
+
+'Jonnitto.AssetList:ForceDownload':
+  abstract: true
+  superTypes:
+    'Jonnitto.AssetList:Group': true
+  properties:
+    forceDownload:
+      type: boolean
+      ui:
+        label: i18n
+        inspector:
+          group: resources
+
+'Jonnitto.AssetList:Thumbnail':
+  abstract: true
+  superTypes:
+    'Jonnitto.AssetList:Group': true
+  properties:
+    thumbnail:
+      type: boolean
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: resources

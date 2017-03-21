@@ -1,0 +1,39 @@
+prototype(Jonnitto.AssetList:AssetList) < prototype(Fusion:Tag) {
+	assets = ${q(node).property('assets')}
+	editable = true
+	forceDownload = ${q(node).property('forceDownload')}
+	thumbnail = ${q(node).property('thumbnail')}
+
+	@context {
+		assets = ${this.assets}
+		editable = ${this.editable}
+		forceDownload = ${this.forceDownload}
+		thumbnail = ${this.thumbnail}
+	}
+
+	attributes.class {
+		assets = ${assets ? 'assets-count-' + Array.length(assets): false}
+		thumbnail = ${'assets-list-' + (thumbnail ? 'thumbnail' : 'text')}
+	}
+
+	content = Fusion:Case {
+		hasAssets {
+			condition = ${assets ? true : false}
+			renderer = Jonnitto.AssetList:Collection
+		}
+		default {
+			condition = ${node.context.currentRenderingMode.edit}
+			renderer = Fusion:Tag {
+				attributes.style = 'background:#f0ad4e;color:#fff;box-shadow:0 1px 10px rgba(0,0,0,0.1);padding:5% 12px;margin:30px auto;text-align:center;text-decoration:none;outline:none;font-size:20px;'
+				content = ${Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')}
+			}
+		}
+	}
+
+	@if.hasAssetsOrBackend = ${node.context.inBackend || assets ? true : false}
+	@process.contentElementWrapping {
+		expression = ContentElementWrapping
+		@if.editable = ${editable}
+		@position = 'end 999999999'
+	}
+}

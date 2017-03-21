@@ -1,0 +1,55 @@
+prototype(Jonnitto.AssetList:File) < prototype(Fusion:Tag) {
+	tagName = 'a'
+	attributes {
+		class = Fusion:RawArray {
+			fileextension = ${'asset-type-' + asset.resource.fileextension}
+			type = ${'asset-item-' + (thumbnail ? 'thumbnail' : 'text')}
+		}
+		target = Fusion:Case {
+			isForceDownload {
+				condition = ${forceDownload}
+				renderer = false
+			}
+			isBoolean {
+				condition = ${Type.isBoolean(target)}
+				renderer = ${target}
+			}
+			default {
+				condition = true
+				renderer = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
+			}
+		}
+		href = Fusion:Case {
+			@if.islive = ${node.context.live}
+			forceDownload {
+				condition = ${forceDownload}
+				renderer = Fusion:UriBuilder {
+					package = 'Jonnitto.AssetList'
+					controller = 'Download'
+					action = 'download'
+					arguments {
+						resource = ${asset.resource}
+					}
+				}
+			}
+			default {
+				condition = true
+				renderer = Fusion:ResourceUri {
+					resource = ${asset.resource}
+				}
+			}
+		}
+	}
+	content = Fusion:Case {
+		hasThumbnail {
+			condition = ${thumbnail ? true : false}
+			renderer = Jonnitto.AssetList:FileNameThumbnail
+		}
+		default {
+			condition = true
+			renderer = Jonnitto.AssetList:FileNameText
+		}
+	}
+
+
+}

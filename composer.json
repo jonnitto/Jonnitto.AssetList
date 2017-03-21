@@ -1,0 +1,38 @@
+{
+    "name": "jonnitto/assetlist",
+    "type": "neos-plugin",
+    "license": "MIT",
+    "description": "A asset list node type for Neos.io",
+    "keywords": [
+        "flow",
+        "neos",
+        "content",
+        "assetlist"
+    ],
+    "authors": [
+        {
+            "name": "Jon Uhlmann",
+            "email": "me@jonnitto.ch",
+            "homepage": "https://twitter.com/jonnitto",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "neos/neos": "^3.0"
+    },
+    "conflict": {
+        "jonnitto/nodetypes": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jonnitto\\AssetList\\": "Classes"
+        }
+    },
+    "extra": {
+        "marketplace-account": "me@jonnitto.ch",
+        "installer-name": "Jonnitto.AssetList",
+        "neos": {
+            "package-key": "Jonnitto.AssetList"
+        }
+    }
+}

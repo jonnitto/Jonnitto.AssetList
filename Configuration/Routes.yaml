@@ -1,0 +1,10 @@
+##
+#  Downloads
+
+-
+  name: 'Download'
+  uriPattern: 'download/{resource}'
+  defaults:
+    '@package':  'Jonnitto.AssetList'
+    '@controller': 'Download'
+    '@action':   'download'

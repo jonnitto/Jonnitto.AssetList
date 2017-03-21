@@ -1,0 +1,10 @@
+prototype(Jonnitto.AssetList:Title) < prototype(Fusion:Case) {
+	hasTitle {
+		condition = ${asset.title}
+		renderer = ${asset.title}
+	}
+	default {
+		condition = true
+		renderer = ${String.replace(String.replace(asset.resource.filename, '_', ' '), '.' + asset.resource.fileextension, '')}
+	}
+}

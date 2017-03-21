@@ -1,0 +1,31 @@
+prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Fusion:Array) {
+	headline = Fusion:Tag {
+		tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
+		attributes.class = Fusion:RawArray {
+			text = 'asset-headline'
+		}
+		content = Jonnitto.AssetList:Title
+	}
+
+	thumbnail = Fusion:Tag {
+		tagName = 'figure'
+		attributes.class = 'asset-thumbnail'
+		content = Jonnitto.AssetList:Image
+	}
+
+	text = Fusion:Tag {
+		tagName = 'div'
+		attributes.class = 'asset-text'
+		content = Fusion:Array {
+			download = ${Translation.translate(forceDownload ? 'file.download' : 'file.open', null, [String.toUpperCase(asset.resource.fileextension)], null, 'Jonnitto.AssetList')}
+			caption = ${' ' + asset.caption + ' '}
+			info = Fusion:Tag {
+				tagName = 'small'
+				attributes.class = 'asset-text-info'
+				content = Jonnitto.AssetList:Filesize
+			}
+		}
+	}
+
+	@if.hasAsset = ${asset}
+}
