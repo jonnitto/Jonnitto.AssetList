@@ -1,17 +1,17 @@
 <?php
 namespace Jonnitto\AssetList\Controller;
 
-use Neos\Flow\Annotations as Flow;
-use Neos\Error\Messages\Message;
+use TYPO3\Flow\Annotations as Flow;
+use TYPO3\Flow\Error\Message;
 
-use Neos\Flow\ResourceManagement\PersistentResource as FlowResource;
-use Neos\Flow\ResourceManagement\ResourceRepository;
-use Neos\Flow\ResourceManagement\ResourceManager;
+use TYPO3\Flow\Resource\Resource as FlowResource;
+use TYPO3\Flow\Resource\ResourceRepository;
+use TYPO3\Flow\Resource\ResourceManager;
 
 /**
  * @Flow\Scope("singleton")
  */
-class DownloadController extends \Neos\Neos\Controller\Module\AbstractModuleController {
+class DownloadController extends \TYPO3\Neos\Controller\Module\AbstractModuleController {
 
     /**
      * @Flow\Inject

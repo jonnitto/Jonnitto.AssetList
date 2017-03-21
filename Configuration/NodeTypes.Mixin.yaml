@@ -14,7 +14,7 @@
     'Jonnitto.AssetList:Group': true
   properties:
     assets:
-      type: array<Neos\Media\Domain\Model\Asset>
+      type: array<TYPO3\Media\Domain\Model\Asset>
       ui:
         inspector:
           group: resources
@@ -28,6 +28,7 @@
   properties:
     forceDownload:
       type: boolean
+      defaultValue: true
       ui:
         label: i18n
         inspector:
@@ -40,6 +41,7 @@
   properties:
     thumbnail:
       type: boolean
+      defaultValue: true
       ui:
         label: i18n
         reloadIfChanged: true
