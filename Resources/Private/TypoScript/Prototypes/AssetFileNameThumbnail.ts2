@@ -12,7 +12,7 @@ prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Fusion:Template) {
 
 	thumbnail = Fusion:Tag {
 		tagName = 'figure'
-		attributes.class = ${namespace + '--thumbnail'}
+		attributes.class = ${namespace + '--figure'}
 		content = Jonnitto.AssetList:Image
 	}
 
