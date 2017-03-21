@@ -16,9 +16,9 @@ prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Fusion:Template) {
 		content = Jonnitto.AssetList:Image
 	}
 
-	text = Fusion:Tag {
+	action = Fusion:Tag {
 		tagName = 'div'
-		attributes.class = ${namespace + '--text'}
+		attributes.class = ${namespace + '--action'}
 		content = Fusion:Array {
 			download = ${Translation.translate(forceDownload ? 'file.download' : 'file.open', null, [String.toUpperCase(asset.resource.fileextension)], null, 'Jonnitto.AssetList')}
 			caption = ${' ' + asset.caption + ' '}
