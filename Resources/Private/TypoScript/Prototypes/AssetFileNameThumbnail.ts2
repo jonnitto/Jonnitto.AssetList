@@ -1,27 +1,30 @@
-prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Fusion:Array) {
+prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Fusion:Template) {
+	templatePath = 'resource://Jonnitto.AssetList/Private/Templates/AssetList.html'
+	sectionName = 'FileNameThumbnail'
+
 	headline = Fusion:Tag {
 		tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
 		attributes.class = Fusion:RawArray {
-			text = 'asset-headline'
+			text = ${namespace + '--headline'}
 		}
 		content = Jonnitto.AssetList:Title
 	}
 
 	thumbnail = Fusion:Tag {
 		tagName = 'figure'
-		attributes.class = 'asset-thumbnail'
+		attributes.class = ${namespace + '--thumbnail'}
 		content = Jonnitto.AssetList:Image
 	}
 
 	text = Fusion:Tag {
 		tagName = 'div'
-		attributes.class = 'asset-text'
+		attributes.class = ${namespace + '--text'}
 		content = Fusion:Array {
 			download = ${Translation.translate(forceDownload ? 'file.download' : 'file.open', null, [String.toUpperCase(asset.resource.fileextension)], null, 'Jonnitto.AssetList')}
 			caption = ${' ' + asset.caption + ' '}
 			info = Fusion:Tag {
 				tagName = 'small'
-				attributes.class = 'asset-text-info'
+				attributes.class = ${namespace + '--filesize'}
 				content = Jonnitto.AssetList:Filesize
 			}
 		}

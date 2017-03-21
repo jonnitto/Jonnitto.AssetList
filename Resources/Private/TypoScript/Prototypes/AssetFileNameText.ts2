@@ -1,7 +1,10 @@
-prototype(Jonnitto.AssetList:FileNameText) < prototype(Fusion:Array) {
-	file = Fusion:Tag {
+prototype(Jonnitto.AssetList:FileNameText) < prototype(Fusion:Template) {
+	templatePath = 'resource://Jonnitto.AssetList/Private/Templates/AssetList.html'
+	sectionName = 'FileNameText'
+
+	headline = Fusion:Tag {
 		tagName = 'span'
-		attributes.class = 'asset-text-file'
+		attributes.class = ${namespace + '--headline'}
 		content = Fusion:Array {
 			title = Jonnitto.AssetList:Title {
 				@process.strongIfCaption = ${asset.caption ? '<strong>' + value + '</strong> ' : value}
@@ -9,10 +12,9 @@ prototype(Jonnitto.AssetList:FileNameText) < prototype(Fusion:Array) {
 			caption = ${asset.caption}
 		}
 	}
-	divider = ' '
 	info = Fusion:Tag {
 		tagName = 'small'
-		attributes.class = 'asset-text-info'
+		attributes.class = ${namespace + '--info'}
 		content = Fusion:Array {
 			fileextension = ${asset.resource.fileextension}
 			divider = ', '
