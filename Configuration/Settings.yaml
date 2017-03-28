@@ -4,7 +4,7 @@ Jonnitto:
     assetExternal: 'image,video,pdf'
     thumbnail:
       headlineTag: h2
-      width: 200
+      maximumWidth: 200
 
 TYPO3:
   Neos:

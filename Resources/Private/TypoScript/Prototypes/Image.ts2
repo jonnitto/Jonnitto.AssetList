@@ -5,7 +5,7 @@ prototype(Jonnitto.AssetList:Image) < prototype(Fusion:Tag) {
 	title = false
 	alternativeText = Jonnitto.AssetList:Title
 
-	maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.width')}
+	maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
 	maximumHeight = false
 	width = false
 	height = false
@@ -29,10 +29,10 @@ prototype(Jonnitto.AssetList:Image) < prototype(Fusion:Tag) {
 		asset = ${asset}
 		allowCropping = ${allowCropping}
 		allowUpScaling = ${allowUpScaling}
-		maximumWidth = ${width ? false : maximumWidth * this.multiplicator}
-		maximumHeight = ${height ? false : maximumHeight * this.multiplicator}
-		width = ${width * this.multiplicator}
-		height = ${height * this.multiplicator}
+		maximumWidth = ${maximumWidth && !width ? maximumWidth * this.multiplicator : 9999}
+		maximumHeight = ${maximumHeight && !height ? maximumHeight * this.multiplicator : 9999}
+		width = ${width ? width * this.multiplicator : false}
+		height = ${height ? height * this.multiplicator : false}
 	}
 
 	tagName = 'img'
