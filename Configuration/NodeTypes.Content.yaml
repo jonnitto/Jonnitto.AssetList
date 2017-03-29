@@ -8,3 +8,4 @@
   ui:
     label: i18n
     icon: icon-files-o
+    position: 800
