@@ -23,14 +23,7 @@ prototype(Jonnitto.AssetList:File) < prototype(Fusion:Tag) {
 			@if.islive = ${node.context.live}
 			forceDownload {
 				condition = ${forceDownload}
-				renderer = Fusion:UriBuilder {
-					package = 'Jonnitto.AssetList'
-					controller = 'Download'
-					action = 'download'
-					arguments {
-						resource = ${asset.resource}
-					}
-				}
+				renderer = Jonnitto.AssetList:DownloadUriBuilder
 			}
 			default {
 				condition = true

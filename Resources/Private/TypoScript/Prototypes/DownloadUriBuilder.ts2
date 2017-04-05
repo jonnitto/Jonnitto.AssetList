@@ -1,0 +1,6 @@
+prototype(Jonnitto.AssetList:DownloadUriBuilder) < prototype(Fusion:UriBuilder) {
+	package = 'Jonnitto.AssetList'
+	controller = 'Download'
+	action = 'download'
+	arguments.resource = ${asset.resource}
+}
