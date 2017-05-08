@@ -12,15 +12,8 @@ prototype(Jonnitto.AssetList:FileNameText) < prototype(Fusion:Template) {
 			caption = ${asset.caption}
 		}
 	}
-	info = Fusion:Tag {
-		tagName = 'small'
-		attributes.class = ${namespace + '--info'}
-		content = Fusion:Array {
-			fileextension = ${asset.resource.fileextension}
-			divider = ', '
-			filesize = Jonnitto.AssetList:Filesize
-		}
-	}
+
+	action = Jonnitto.AssetList:AssetAction
 
 	@if.hasAsset = ${asset}
 }
