@@ -2,8 +2,10 @@ Jonnitto:
   AssetList:
     externalTarget: _blank
     assetExternal: 'image,video,pdf'
+    text:
+      headlineTag: strong
     thumbnail:
-      headlineTag: h2
+      headlineTag: strong
       maximumWidth: 200
 
 TYPO3:
