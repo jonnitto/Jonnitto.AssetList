@@ -2,6 +2,8 @@ Jonnitto:
   AssetList:
     externalTarget: _blank
     assetExternal: 'image,video,pdf'
+    text:
+      headlineTag: strong
     thumbnail:
       headlineTag: h2
       maximumWidth: 200

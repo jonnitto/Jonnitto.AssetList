@@ -3,24 +3,14 @@ prototype(Jonnitto.AssetList:FileNameText) < prototype(Fusion:Template) {
 	sectionName = 'FileNameText'
 
 	headline = Fusion:Tag {
-		tagName = 'span'
-		attributes.class = ${namespace + '--headline'}
-		content = Fusion:Array {
-			title = Jonnitto.AssetList:Title {
-				@process.strongIfCaption = ${asset.caption ? '<strong>' + value + '</strong> ' : value}
-			}
-			caption = ${asset.caption}
+		tagName = ${Configuration.setting('Jonnitto.AssetList.text.headlineTag')}
+		attributes.class = Fusion:RawArray {
+			text = ${namespace + '--headline'}
 		}
+		content = Jonnitto.AssetList:Title
 	}
-	info = Fusion:Tag {
-		tagName = 'small'
-		attributes.class = ${namespace + '--info'}
-		content = Fusion:Array {
-			fileextension = ${asset.resource.fileextension}
-			divider = ', '
-			filesize = Jonnitto.AssetList:Filesize
-		}
-	}
+
+	action = Jonnitto.AssetList:AssetAction
 
 	@if.hasAsset = ${asset}
 }
