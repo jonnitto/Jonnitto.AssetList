@@ -14,6 +14,7 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Fusion:Tag) {
 	}
 
 	attributes.class = Fusion:RawArray {
+		container = ${Configuration.setting('Jonnitto.AssetList.container')}
 		list = ${namespace}
 		assets = ${assets ? namespace + '--count-' + Array.length(assets): false}
 		thumbnail = ${namespace + (thumbnail ? '--thumbnail' : '--text')}

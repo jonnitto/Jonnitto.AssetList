@@ -1,5 +1,6 @@
 Jonnitto:
   AssetList:
+    container: false
     externalTarget: _blank
     assetExternal: 'image,video,pdf'
     text:
