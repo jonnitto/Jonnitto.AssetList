@@ -14,6 +14,8 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Fusion:Tag) {
 	}
 
 	attributes.class = Fusion:RawArray {
+		@process.nodeType >
+		nodeType = 'jonnitto-assetlist'
 		container = ${Configuration.setting('Jonnitto.AssetList.container')}
 		list = ${namespace}
 		assets = ${assets ? namespace + '--count-' + Array.length(assets): false}
