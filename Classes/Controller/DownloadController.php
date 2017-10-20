@@ -27,9 +27,10 @@ class DownloadController extends \Neos\Neos\Controller\Module\AbstractModuleCont
 
     /**
      * @param string $resource
+     * @param string $filename
      * @return void
      */
-    public function downloadAction($resource='') {
+    public function downloadAction($resource='', $filename='') {
         if ( empty($resource) ) {
             exit('No resource identifier given');
         }
@@ -39,8 +40,11 @@ class DownloadController extends \Neos\Neos\Controller\Module\AbstractModuleCont
             exit('Resource not found.');
         }
 
+        if ( empty($filename) ) {
+            $filename = $flowResource->getFilename();
+        }
+
         $fileExtension = $flowResource->getFileExtension();
-        $filename = $flowResource->getFilename();
         $fileExtensionFromFilename = substr($filename, strlen($fileExtension) * -1);
 
         // Make shure file has an proper file extension
