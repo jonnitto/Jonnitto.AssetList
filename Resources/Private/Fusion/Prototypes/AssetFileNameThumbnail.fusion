@@ -1,22 +1,11 @@
-prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Fusion:Template) {
-	templatePath = 'resource://Jonnitto.AssetList/Private/Templates/AssetList.html'
-	sectionName = 'FileNameThumbnail'
+prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Jonnitto.AssetList:FileNameText) {
 
-	headline = Fusion:Tag {
-		tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
-		attributes.class = Fusion:RawArray {
-			text = ${namespace + '--headline'}
-		}
-		content = Jonnitto.AssetList:Title
-	}
+    headline.tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
 
-	thumbnail = Fusion:Tag {
-		tagName = 'figure'
-		attributes.class = ${namespace + '--figure'}
-		content = Jonnitto.AssetList:Image
-	}
-
-	action = Jonnitto.AssetList:AssetAction
-
-	@if.hasAsset = ${asset}
+    thumbnail = Neos.Fusion:Tag {
+        @position = 'after headline'
+        tagName = 'figure'
+        attributes.class = ${namespace + '--figure'}
+        content = Jonnitto.AssetList:Image
+    }
 }

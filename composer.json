@@ -3,12 +3,7 @@
     "type": "neos-plugin",
     "license": "MIT",
     "description": "A asset list node type for Neos.io",
-    "keywords": [
-        "flow",
-        "neos",
-        "content",
-        "assetlist"
-    ],
+    "keywords": ["flow", "neos", "content", "assetlist"],
     "authors": [
         {
             "name": "Jon Uhlmann",
@@ -18,10 +13,14 @@
         }
     ],
     "require": {
-        "neos/neos": "~3.0 || dev-master"
+        "neos/neos": "~3.0 || dev-master",
+        "carbon/image": "^1.0"
     },
     "conflict": {
         "jonnitto/nodetypes": "*"
+    },
+    "archive": {
+        "exclude": ["/.gitignore", ".github", "/.editorconfig", "/gulp.json", "/package.json"]
     },
     "autoload": {
         "psr-4": {

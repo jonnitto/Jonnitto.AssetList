@@ -1,55 +1,9 @@
-prototype(Jonnitto.AssetList:Image) < prototype(Fusion:Tag) {
-	asset = ${asset}
-	@if.hasAsset = ${!!asset}
+prototype(Jonnitto.AssetList:Image) < prototype(Carbon.Image:Tag) {
+    asset = ${asset}
+    @if.hasImageOrBackend = ${this.asset ? true : false}
 
-	title = false
-	alternativeText = Jonnitto.AssetList:Title
+    alternativeText = Jonnitto.AssetList:Title
+    maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
 
-	maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
-	maximumHeight = false
-	width = false
-	height = false
-	allowCropping = false
-	allowUpScaling = false
-
-	@context {
-		asset = ${this.asset}
-		maximumWidth = ${this.maximumWidth}
-		maximumHeight = ${this.maximumHeight}
-		width = ${this.width}
-		height = ${this.height}
-		allowCropping = ${this.allowCropping}
-		allowUpScaling = ${this.allowUpScaling}
-		title = ${this.title}
-		alternativeText = ${this.alternativeText}
-	}
-
-	prototype(ImageUri) {
-		multiplicator = 1
-		asset = ${asset}
-		allowCropping = ${allowCropping}
-		allowUpScaling = ${allowUpScaling}
-		maximumWidth = ${maximumWidth && !width ? maximumWidth * this.multiplicator : 9999}
-		maximumHeight = ${maximumHeight && !height ? maximumHeight * this.multiplicator : 9999}
-		width = ${width ? width * this.multiplicator : false}
-		height = ${height ? height * this.multiplicator : false}
-	}
-
-	tagName = 'img'
-
-	attributes {
-		class = ${namespace + '--img'}
-		title = ${title}
-		alt = ${alternativeText}
-		src = ImageUri
-		srcset = Fusion:Array {
-			1 = ImageUri {
-				@process.addResolution = ${value + ' 1x'}
-			}
-			2 = ImageUri {
-				multiplicator = 2
-				@process.addResolution = ${',' + value + ' 2x'}
-			}
-		}
-	}
+    attributes.class = ${namespace + '--img'}
 }

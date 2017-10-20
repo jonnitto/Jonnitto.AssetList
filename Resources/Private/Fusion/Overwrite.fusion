@@ -1,0 +1,12 @@
+prototype(Neos.Neos:Page) {
+    head.assetList = Neos.Fusion:Tag {
+        tagName = 'link'
+        attributes {
+            rel = 'stylesheet'
+            href = Neos.Fusion:ResourceUri {
+                path = 'resource://Jonnitto.AssetList/Public/Main.css'
+            }
+        }
+        @if.hasListOrIsBackendAndActive = ${(q(node).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof Jonnitto.AssetList:AssetList]').is() || node.context.inBackend) && Configuration.setting('Jonnitto.AssetList.includeCss')}
+    }
+}

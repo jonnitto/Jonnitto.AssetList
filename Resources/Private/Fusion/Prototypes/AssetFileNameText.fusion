@@ -1,16 +1,13 @@
-prototype(Jonnitto.AssetList:FileNameText) < prototype(Fusion:Template) {
-	templatePath = 'resource://Jonnitto.AssetList/Private/Templates/AssetList.html'
-	sectionName = 'FileNameText'
+prototype(Jonnitto.AssetList:FileNameText) < prototype(Neos.Fusion:Array) {
+    headline = Neos.Fusion:Tag {
+        tagName = ${Configuration.setting('Jonnitto.AssetList.text.headlineTag')}
+        attributes.class = Neos.Fusion:RawArray {
+            text = ${namespace + '--headline'}
+        }
+        content = Jonnitto.AssetList:Title
+    }
 
-	headline = Fusion:Tag {
-		tagName = ${Configuration.setting('Jonnitto.AssetList.text.headlineTag')}
-		attributes.class = Fusion:RawArray {
-			text = ${namespace + '--headline'}
-		}
-		content = Jonnitto.AssetList:Title
-	}
+    action = Jonnitto.AssetList:AssetAction
 
-	action = Jonnitto.AssetList:AssetAction
-
-	@if.hasAsset = ${asset}
+    @if.hasAsset = ${asset}
 }

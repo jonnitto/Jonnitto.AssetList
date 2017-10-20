@@ -1,15 +1,20 @@
 Jonnitto:
   AssetList:
+    includeCss: true
     container: false
     externalTarget: _blank
     assetExternal: 'image,video,pdf'
     text:
       headlineTag: strong
     thumbnail:
-      headlineTag: h2
-      maximumWidth: 200
+      headlineTag: strong
+      maximumWidth: 400
 
 Neos:
+  Media:
+    thumbnailGenerators:
+      Neos\Media\Domain\Model\ThumbnailGenerator\DocumentThumbnailGenerator:
+        resolution: 300
   Neos:
     userInterface:
       translation:
