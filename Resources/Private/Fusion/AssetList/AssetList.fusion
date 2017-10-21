@@ -28,8 +28,7 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Fusion:Tag) {
         }
         default {
             condition = ${node.context.currentRenderingMode.edit}
-            renderer = Neos.Fusion:Tag {
-                attributes.style = 'background:#f0ad4e;color:#fff;box-shadow:0 1px 10px rgba(0,0,0,0.1);padding:5% 12px;margin:30px auto;text-align:center;text-decoration:none;outline:none;font-size:20px;'
+            renderer = Carbon.Notification:Tag {
                 content = ${Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')}
             }
         }
