@@ -21,7 +21,7 @@
         "jonnitto/nodetypes": "*"
     },
     "archive": {
-        "exclude": [".gitignore", ".github", ".editorconfig", "gulp.json", "package.json", "CODE_OF_CONDUCT.md"]
+        "exclude": [".editorconfig", ".gitignore", ".github", ".gitattributes", "gulp.json", "package.json", "CODE_OF_CONDUCT.md"]
     },
     "autoload": {
         "psr-4": {
