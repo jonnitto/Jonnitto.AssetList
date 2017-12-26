@@ -1,13 +1,13 @@
 prototype(Jonnitto.AssetList:AssetAction) < prototype(Fusion:Tag) {
-	tagName = 'span'
-	attributes.class = ${namespace + '--action'}
-	content = Fusion:Array {
-		download = ${Translation.translate(forceDownload ? 'file.download' : 'file.open', null, [String.toUpperCase(asset.resource.fileextension)], null, 'Jonnitto.AssetList')}
-		caption = ${' ' + asset.caption + ' '}
-		info = Fusion:Tag {
-			tagName = 'small'
-			attributes.class = ${namespace + '--filesize'}
-			content = Jonnitto.AssetList:Filesize
-		}
-	}
+    tagName = 'span'
+    attributes.class = ${namespace + '--action'}
+    content = Fusion:Array {
+        download = ${Translation.translate(forceDownload ? 'file.download' : 'file.open', null, [String.toUpperCase(asset.resource.fileextension)], null, 'Jonnitto.AssetList')}
+        caption = ${' ' + asset.caption + ' '}
+        info = Fusion:Tag {
+            tagName = 'small'
+            attributes.class = ${namespace + '--filesize'}
+            content = Jonnitto.AssetList:Filesize
+        }
+    }
 }

@@ -1,46 +1,46 @@
 prototype(Jonnitto.AssetList:File) < prototype(Fusion:Tag) {
-	tagName = 'a'
-	attributes {
-		class = Fusion:RawArray {
-			fileextension = ${namespace + '--type-' + asset.resource.fileextension}
-			type = ${namespace + '--item-' + (thumbnail ? 'thumbnail' : 'text')}
-		}
-		target = Fusion:Case {
-			isForceDownload {
-				condition = ${forceDownload}
-				renderer = false
-			}
-			isBoolean {
-				condition = ${Type.isBoolean(target)}
-				renderer = ${target}
-			}
-			default {
-				condition = true
-				renderer = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
-			}
-		}
-		href = Fusion:Case {
-			@if.islive = ${node.context.live}
-			forceDownload {
-				condition = ${forceDownload}
-				renderer = Jonnitto.AssetList:DownloadUriBuilder
-			}
-			default {
-				condition = true
-				renderer = Fusion:ResourceUri {
-					resource = ${asset.resource}
-				}
-			}
-		}
-	}
-	content = Fusion:Case {
-		hasThumbnail {
-			condition = ${thumbnail ? true : false}
-			renderer = Jonnitto.AssetList:FileNameThumbnail
-		}
-		default {
-			condition = true
-			renderer = Jonnitto.AssetList:FileNameText
-		}
-	}
+    tagName = 'a'
+    attributes {
+        class = Fusion:RawArray {
+            fileextension = ${namespace + '--type-' + asset.resource.fileextension}
+            type = ${namespace + '--item-' + (thumbnail ? 'thumbnail' : 'text')}
+        }
+        target = Fusion:Case {
+            isForceDownload {
+                condition = ${forceDownload}
+                renderer = false
+            }
+            isBoolean {
+                condition = ${Type.isBoolean(target)}
+                renderer = ${target}
+            }
+            default {
+                condition = true
+                renderer = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
+            }
+        }
+        href = Fusion:Case {
+            @if.islive = ${node.context.live}
+            forceDownload {
+                condition = ${forceDownload}
+                renderer = Jonnitto.AssetList:DownloadUriBuilder
+            }
+            default {
+                condition = true
+                renderer = Fusion:ResourceUri {
+                    resource = ${asset.resource}
+                }
+            }
+        }
+    }
+    content = Fusion:Case {
+        hasThumbnail {
+            condition = ${thumbnail ? true : false}
+            renderer = Jonnitto.AssetList:FileNameThumbnail
+        }
+        default {
+            condition = true
+            renderer = Jonnitto.AssetList:FileNameText
+        }
+    }
 }

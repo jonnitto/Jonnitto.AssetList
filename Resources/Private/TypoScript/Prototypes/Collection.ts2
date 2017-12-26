@@ -1,12 +1,12 @@
 prototype(Jonnitto.AssetList:Collection) < prototype(Fusion:Collection) {
-	collection = ${assets ? assets : null}
-	itemName = 'asset'
-	iterationName = 'iterator'
-	itemRenderer = Jonnitto.AssetList:File {
-		@process {
-			liTag = ${'<li class="' + namespace + '--li">' + value + '</li>'}
-			ulOpen = ${iterator.isFirst ? '<ul class="' + namespace + '--ul">' + value : value}
-			ulClose = ${iterator.isLast ? value + '</ul>' : value}
-		}
-	}
+    collection = ${assets ? assets : null}
+    itemName = 'asset'
+    iterationName = 'iterator'
+    itemRenderer = Jonnitto.AssetList:File {
+        @process {
+            liTag = ${'<li class="' + namespace + '--li">' + value + '</li>'}
+            ulOpen = ${iterator.isFirst ? '<ul class="' + namespace + '--ul">' + value : value}
+            ulClose = ${iterator.isLast ? value + '</ul>' : value}
+        }
+    }
 }
