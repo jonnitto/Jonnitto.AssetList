@@ -1,0 +1,42 @@
+.assets-list {
+  margin-top: 0;
+
+  &--ul,
+  &--li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &--li {
+    padding-bottom: 1rem;
+  }
+
+  &--headline {
+    margin: 0;
+    display: block;
+  }
+
+  &--figure {
+    margin-bottom: 0.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--filesize {
+    &::before {
+      content: "(";
+    }
+
+    &::after {
+      content: ")";
+    }
+  }
+
+  &--action {
+    font-size: asset-list(action-font-size);
+    display: block;
+  }
+}

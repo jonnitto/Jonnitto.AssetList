@@ -1,7 +1,4 @@
-prototype(Jonnitto.AssetList:FileNameText) < prototype(TYPO3.TypoScript:Template) {
-    templatePath = 'resource://Jonnitto.AssetList/Private/Templates/AssetList.html'
-    sectionName = 'FileNameText'
-
+prototype(Jonnitto.AssetList:FileNameText) < prototype(TYPO3.TypoScript:Array) {
     headline = TYPO3.TypoScript:Tag {
         tagName = ${Configuration.setting('Jonnitto.AssetList.text.headlineTag')}
         attributes.class = TYPO3.TypoScript:RawArray {

@@ -1,14 +1,20 @@
 Jonnitto:
   AssetList:
+    includeCss: true
+    container: false
     externalTarget: _blank
     assetExternal: 'image,video,pdf'
     text:
       headlineTag: strong
     thumbnail:
       headlineTag: strong
-      maximumWidth: 200
+      maximumWidth: 400
 
 TYPO3:
+  Media:
+    thumbnailGenerators:
+      TYPO3\Media\Domain\Model\ThumbnailGenerator\DocumentThumbnailGenerator:
+        resolution: 300
   Neos:
     userInterface:
       translation:

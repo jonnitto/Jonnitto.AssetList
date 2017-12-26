@@ -1,0 +1,12 @@
+prototype(TYPO3.Neos:Page) {
+    head.assetList = TYPO3.TypoScript:Tag {
+        tagName = 'link'
+        attributes {
+            rel = 'stylesheet'
+            href = TYPO3.TypoScript:ResourceUri {
+                path = 'resource://Jonnitto.AssetList/Public/Main.css'
+            }
+        }
+        @if.hasListOrIsBackendAndActive = ${(q(node).children('[instanceof TYPO3.Neos:ContentCollection]').find('[instanceof Jonnitto.AssetList:AssetList]').is() || node.context.inBackend) && Configuration.setting('Jonnitto.AssetList.includeCss')}
+    }
+}

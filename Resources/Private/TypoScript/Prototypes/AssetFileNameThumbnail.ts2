@@ -1,22 +1,11 @@
-prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(TYPO3.TypoScript:Template) {
-    templatePath = 'resource://Jonnitto.AssetList/Private/Templates/AssetList.html'
-    sectionName = 'FileNameThumbnail'
+prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Jonnitto.AssetList:FileNameText) {
 
-    headline = TYPO3.TypoScript:Tag {
-        tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
-        attributes.class = TYPO3.TypoScript:RawArray {
-            text = ${namespace + '--headline'}
-        }
-        content = Jonnitto.AssetList:Title
-    }
+    headline.tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
 
     thumbnail = TYPO3.TypoScript:Tag {
+        @position = 'after headline'
         tagName = 'figure'
         attributes.class = ${namespace + '--figure'}
         content = Jonnitto.AssetList:Image
     }
-
-    action = Jonnitto.AssetList:AssetAction
-
-    @if.hasAsset = ${asset}
 }
