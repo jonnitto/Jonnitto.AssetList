@@ -27,9 +27,10 @@ class DownloadController extends \TYPO3\Neos\Controller\Module\AbstractModuleCon
 
     /**
      * @param string $resource
+     * @param string $filename
      * @return void
      */
-    public function downloadAction($resource='') {
+    public function downloadAction($resource='', $filename='') {
         if ( empty($resource) ) {
             header('HTTP/1.0 404 Not Found');
             exit('No resource identifier given');
@@ -41,8 +42,11 @@ class DownloadController extends \TYPO3\Neos\Controller\Module\AbstractModuleCon
             exit('Resource not found.');
         }
 
+        if ( empty($filename) ) {
+            $filename = $flowResource->getFilename();
+        }
+
         $fileExtension = $flowResource->getFileExtension();
-        $filename = $flowResource->getFilename();
         $fileExtensionFromFilename = substr($filename, strlen($fileExtension) * -1);
 
         // Make shure file has an proper file extension

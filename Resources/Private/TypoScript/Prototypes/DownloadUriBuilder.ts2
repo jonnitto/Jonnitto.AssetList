@@ -2,5 +2,8 @@ prototype(Jonnitto.AssetList:DownloadUriBuilder) < prototype(TYPO3.TypoScript:Ur
     package = 'Jonnitto.AssetList'
     controller = 'Download'
     action = 'download'
-    arguments.resource = ${asset.resource}
+    arguments {
+        resource = ${asset.resource}
+        filename = ${asset.resource.filename}
+    }
 }

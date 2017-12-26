@@ -3,7 +3,7 @@
 
 -
   name: 'Download'
-  uriPattern: 'download/{resource}'
+  uriPattern: 'download/{resource}/{filename}'
   defaults:
     '@package':  'Jonnitto.AssetList'
     '@controller': 'Download'
