@@ -1,4 +1,4 @@
-prototype(Jonnitto.AssetList:Image) < prototype(Fusion:Tag) {
+prototype(Jonnitto.AssetList:Image) < prototype(TYPO3.TypoScript:Tag) {
     asset = ${asset}
     @if.hasAsset = ${!!asset}
 
@@ -42,7 +42,7 @@ prototype(Jonnitto.AssetList:Image) < prototype(Fusion:Tag) {
         title = ${title}
         alt = ${alternativeText}
         src = ImageUri
-        srcset = Fusion:Array {
+        srcset = TYPO3.TypoScript:Array {
             1 = ImageUri {
                 @process.addResolution = ${value + ' 1x'}
             }

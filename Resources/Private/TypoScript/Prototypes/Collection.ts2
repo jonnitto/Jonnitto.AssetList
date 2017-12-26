@@ -1,4 +1,4 @@
-prototype(Jonnitto.AssetList:Collection) < prototype(Fusion:Collection) {
+prototype(Jonnitto.AssetList:Collection) < prototype(TYPO3.TypoScript:Collection) {
     collection = ${assets ? assets : null}
     itemName = 'asset'
     iterationName = 'iterator'

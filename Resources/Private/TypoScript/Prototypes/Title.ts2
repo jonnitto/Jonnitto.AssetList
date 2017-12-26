@@ -1,4 +1,4 @@
-prototype(Jonnitto.AssetList:Title) < prototype(Fusion:Case) {
+prototype(Jonnitto.AssetList:Title) < prototype(TYPO3.TypoScript:Case) {
     hasTitle {
         condition = ${asset.title}
         renderer = ${asset.title}

@@ -1,3 +1,1 @@
-namespace: Fusion = TYPO3.TypoScript
-
 include: **/*.ts2

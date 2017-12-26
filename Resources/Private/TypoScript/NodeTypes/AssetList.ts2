@@ -1,4 +1,4 @@
-prototype(Jonnitto.AssetList:AssetList) < prototype(Fusion:Tag) {
+prototype(Jonnitto.AssetList:AssetList) < prototype(TYPO3.TypoScript:Tag) {
     assets = ${q(node).property('assets')}
     editable = true
     forceDownload = ${q(node).property('forceDownload')}
@@ -13,20 +13,20 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Fusion:Tag) {
         namespace = ${this.namespace}
     }
 
-    attributes.class = Fusion:RawArray {
+    attributes.class = TYPO3.TypoScript:RawArray {
         list = ${namespace}
         assets = ${assets ? namespace + '--count-' + Array.length(assets): false}
         thumbnail = ${namespace + (thumbnail ? '--thumbnail' : '--text')}
     }
 
-    content = Fusion:Case {
+    content = TYPO3.TypoScript:Case {
         hasAssets {
             condition = ${assets ? true : false}
             renderer = Jonnitto.AssetList:Collection
         }
         default {
             condition = ${node.context.currentRenderingMode.edit}
-            renderer = Fusion:Tag {
+            renderer = TYPO3.TypoScript:Tag {
                 attributes.style = 'background:#f0ad4e;color:#fff;box-shadow:0 1px 10px rgba(0,0,0,0.1);padding:5% 12px;margin:30px auto;text-align:center;text-decoration:none;outline:none;font-size:20px;'
                 content = ${Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')}
             }

@@ -1,16 +1,16 @@
-prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(Fusion:Template) {
+prototype(Jonnitto.AssetList:FileNameThumbnail) < prototype(TYPO3.TypoScript:Template) {
     templatePath = 'resource://Jonnitto.AssetList/Private/Templates/AssetList.html'
     sectionName = 'FileNameThumbnail'
 
-    headline = Fusion:Tag {
+    headline = TYPO3.TypoScript:Tag {
         tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
-        attributes.class = Fusion:RawArray {
+        attributes.class = TYPO3.TypoScript:RawArray {
             text = ${namespace + '--headline'}
         }
         content = Jonnitto.AssetList:Title
     }
 
-    thumbnail = Fusion:Tag {
+    thumbnail = TYPO3.TypoScript:Tag {
         tagName = 'figure'
         attributes.class = ${namespace + '--figure'}
         content = Jonnitto.AssetList:Image

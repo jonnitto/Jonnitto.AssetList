@@ -1,11 +1,11 @@
-prototype(Jonnitto.AssetList:File) < prototype(Fusion:Tag) {
+prototype(Jonnitto.AssetList:File) < prototype(TYPO3.TypoScript:Tag) {
     tagName = 'a'
     attributes {
-        class = Fusion:RawArray {
+        class = TYPO3.TypoScript:RawArray {
             fileextension = ${namespace + '--type-' + asset.resource.fileextension}
             type = ${namespace + '--item-' + (thumbnail ? 'thumbnail' : 'text')}
         }
-        target = Fusion:Case {
+        target = TYPO3.TypoScript:Case {
             isForceDownload {
                 condition = ${forceDownload}
                 renderer = false
@@ -19,7 +19,7 @@ prototype(Jonnitto.AssetList:File) < prototype(Fusion:Tag) {
                 renderer = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
             }
         }
-        href = Fusion:Case {
+        href = TYPO3.TypoScript:Case {
             @if.islive = ${node.context.live}
             forceDownload {
                 condition = ${forceDownload}
@@ -27,13 +27,13 @@ prototype(Jonnitto.AssetList:File) < prototype(Fusion:Tag) {
             }
             default {
                 condition = true
-                renderer = Fusion:ResourceUri {
+                renderer = TYPO3.TypoScript:ResourceUri {
                     resource = ${asset.resource}
                 }
             }
         }
     }
-    content = Fusion:Case {
+    content = TYPO3.TypoScript:Case {
         hasThumbnail {
             condition = ${thumbnail ? true : false}
             renderer = Jonnitto.AssetList:FileNameThumbnail

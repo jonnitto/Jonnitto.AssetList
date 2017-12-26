@@ -1,4 +1,4 @@
-prototype(Jonnitto.AssetList:DownloadUriBuilder) < prototype(Fusion:UriBuilder) {
+prototype(Jonnitto.AssetList:DownloadUriBuilder) < prototype(TYPO3.TypoScript:UriBuilder) {
     package = 'Jonnitto.AssetList'
     controller = 'Download'
     action = 'download'
