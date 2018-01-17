@@ -7,6 +7,9 @@ prototype(Neos.Neos:Page) {
                 path = 'resource://Jonnitto.AssetList/Public/Main.css'
             }
         }
-        @if.hasListOrIsBackendAndActive = ${(q(node).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof Jonnitto.AssetList:AssetList]').is() || node.context.inBackend) && Configuration.setting('Jonnitto.AssetList.includeCss')}
+        @if.render = Carbon.Condition:Case {
+            enabled = ${Configuration.setting('Jonnitto.AssetList.includeCss')}
+            content.nodeType = 'Jonnitto.AssetList:AssetList'
+        }
     }
 }
