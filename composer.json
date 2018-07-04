@@ -1,6 +1,6 @@
 {
     "name": "jonnitto/assetlist",
-    "type": "neos-plugin",
+    "type": "typo3-flow-plugin",
     "license": "MIT",
     "description": "A asset list node type for Neos.io",
     "keywords": ["flow", "neos", "content", "assetlist"],
@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "typo3/neos": "*",
+        "typo3/neos": "~2.0",
         "carbon/notification": "^0.1"
     },
     "conflict": {
