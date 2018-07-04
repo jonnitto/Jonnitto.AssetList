@@ -16,10 +16,11 @@
     assets:
       type: array<TYPO3\Media\Domain\Model\Asset>
       ui:
-        inspector:
-          group: resources
         label: i18n
         reloadIfChanged: true
+        inspector:
+          group: resources
+          position: 10
 
 'Jonnitto.AssetList:ForceDownload':
   abstract: true
@@ -33,6 +34,7 @@
         label: i18n
         inspector:
           group: resources
+          position: 20
 
 'Jonnitto.AssetList:Thumbnail':
   abstract: true
@@ -47,3 +49,4 @@
         reloadIfChanged: true
         inspector:
           group: resources
+          position: 30
