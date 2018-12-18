@@ -1,5 +1,5 @@
 prototype(Jonnitto.AssetList:Collection) < prototype(Neos.Fusion:Collection) {
-    collection = ${assets ? assets : null}
+    collection = ${assetsProperty ? assetsProperty : null}
     itemName = 'asset'
     iterationName = 'iterator'
     itemRenderer = Jonnitto.AssetList:File {

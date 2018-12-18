@@ -4,9 +4,11 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Fusion:Tag) {
     forceDownload = ${q(node).property('forceDownload')}
     thumbnail = ${q(node).property('thumbnail')}
     namespace = 'assets-list'
+    assetsLength = ${Type.isArray(this.assets) ? Array.length(this.assets) : false}
 
     @context {
-        assets = ${this.assets}
+        assetsProperty = ${this.assets}
+        assetsLength = ${this.assetsLength}
         editable = ${this.editable}
         forceDownload = ${this.forceDownload}
         thumbnail = ${this.thumbnail}
@@ -17,24 +19,24 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Fusion:Tag) {
         nodeType = 'jonnitto-assetlist'
         container = ${Configuration.setting('Jonnitto.AssetList.container')}
         list = ${namespace}
-        assets = ${assets ? namespace + '--count-' + Array.length(assets): false}
+        assets = ${assetsLength ? namespace + '--count-' + assetsLength : false}
         thumbnail = ${namespace + (thumbnail ? '--thumbnail' : '--text')}
     }
 
     content = Neos.Fusion:Case {
         hasAssets {
-            condition = ${assets ? true : false}
+            condition = ${assetsLength}
             renderer = Jonnitto.AssetList:Collection
         }
         default {
-            condition = ${node.context.currentRenderingMode.edit}
-            renderer = Carbon.Notification:Tag {
+            condition = true
+            renderer = Carbon.Notification:Backend {
                 content = ${Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')}
             }
         }
     }
 
-    @if.hasAssetsOrBackend = ${node.context.inBackend || this.assets ? true : false}
+    @if.hasAssetsOrBackend = ${node.context.inBackend || this.assetsLength ? true : false}
     @process.contentElementWrapping {
         expression = Neos.Neos:ContentElementWrapping
         @if.editable = ${editable}
