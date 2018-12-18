@@ -5,5 +5,8 @@ prototype(Jonnitto.AssetList:Image) < prototype(Carbon.Image:Tag) {
     alternativeText = Jonnitto.AssetList:Title
     maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
 
-    attributes.class = ${namespace + '--img'}
+    class = ${namespace + '--img'}
+
+    // Backward compatibility for Carbon.Image 1.x
+    additionalClass = ${this.class}
 }
