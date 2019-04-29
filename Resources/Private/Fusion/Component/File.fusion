@@ -16,8 +16,7 @@ prototype(Jonnitto.AssetList:Component.File) < prototype(Neos.Fusion:Component) 
                 @if.islive = ${node.context.live}
                 resource = ${props.asset.resource}
             }
-            download = ${String.replace(props.asset.resource.filename, '.' + props.asset.resource.fileextension, '')}
-            download.@if.set = ${props.forceDownload && this.href}
+            download = ${!!(props.forceDownload && this.href)}
             target = ${props.target}
             class = Carbon.Eel:BEM {
                 block = ${props.namespace}
