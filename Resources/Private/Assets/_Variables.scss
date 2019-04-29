@@ -1,10 +1,13 @@
 $asset-list: () !default;
-$asset-list: map-merge((
-  "action-font-size": 12px,
-  "thumbnail-gutter": 15px,
-  "thumbnail-ratio": 4/3,
-  "thumbnail-center": false
-), $asset-list);
+$asset-list: map-merge(
+  (
+    "action-font-size": 12px,
+    "thumbnail-gutter": 15px,
+    "thumbnail-ratio": 4/3,
+    "thumbnail-center": false
+  ),
+  $asset-list
+);
 
 @function asset-list($key) {
   @return map-get($asset-list, $key);

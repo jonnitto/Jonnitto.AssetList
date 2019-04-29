@@ -1,0 +1,5 @@
+prototype(Jonnitto.AssetList:Component.Asset.Title) < prototype(Neos.Fusion:Component) {
+    asset = null
+
+    renderer = ${props.asset.title || String.replace(String.replace(props.asset.resource.filename, '_', ' '), '.' + props.asset.resource.fileextension, '')}
+}

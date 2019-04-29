@@ -1,0 +1,31 @@
+prototype(Jonnitto.AssetList:Component.Collection) < prototype(Neos.Fusion:Component) {
+    assets = null
+    forceDownload = null
+    thumbnail = null
+    namespace = null
+    tagName = 'ul'
+    entryTagName = 'li'
+    target = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
+    maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
+
+    type = ${this.thumbnail ? 'thumbnail' : 'text'}
+
+    renderer = Neos.Fusion:Loop {
+        items = ${props.assets}
+        itemRenderer = afx`
+            <Carbon.Eel:Tag tagName={props.tagName} attributes.class={BEM.string(props.namespace, 'list', props.type)}>
+                <Carbon.Eel:Tag tagName={props.entryTagName} attributes.class={BEM.string(props.namespace, 'entry', props.type)}>
+                    <Jonnitto.AssetList:Component.File
+                        asset={item}
+                        forceDownload={props.forceDownload}
+                        thumbnail={props.thumbnail}
+                        type={props.type}
+                        namespace={props.namespace}
+                        target={props.target}
+                        maximumWidth={props.maximumWidth}
+                    />
+                </Carbon.Eel:Tag>
+            </Carbon.Eel:Tag>
+        `
+    }
+}

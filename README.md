@@ -15,18 +15,19 @@ A asset list node type for [Neos](https://www.neos.io).
 | ------- | ----------- |
 | 1.\*    | 2.\*        |
 | > 2.2   | 3.\* + 4.\* |
+| > 3.\*  | ^4.2        |
 
 ## Installation
 
 Most of the time you have to make small adjustments to a package (e.g. configuration in Settings.yaml). Because of that, it is important to add the corresponding package to the composer from your theme package. Mostly this is the site packages located under Packages/Sites/. To install it correctly go to your theme package (e.g.Packages/Sites/Foo.Bar) and run following command:
 
-```
+```bash
 composer require jonnitto/assetlist --no-update
 ```
 
 To install the package under Neos 2.\* you have to enter
 
-```
+```bash
 composer require "jonnitto/assetlist:^1.0" --no-update
 ```
 

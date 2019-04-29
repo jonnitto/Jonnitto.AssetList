@@ -1,0 +1,25 @@
+prototype(Jonnitto.AssetList:Component.FileName.Thumbnail) < prototype(Neos.Fusion:Component) {
+    tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
+    modifier = null
+
+    // extension points
+    beforeHeadline = null
+    beforeImage = null
+    beforeAction = null
+    afterAction = null
+
+    @if.hasAsset = ${this.asset}
+    renderer = afx`
+        {props.beforeHeadline}
+        <Neos.Fusion:Tag @key='headline' tagName={props.tagName} attributes.class={BEM.string(props.namespace, 'headline', props.modifier)}>
+            <Jonnitto.AssetList:Component.Asset.Title asset={props.asset} />
+        </Neos.Fusion:Tag>
+        {props.beforeImage}
+        <figure class={BEM.string(props.namespace, 'figure', props.modifier)}>
+            <Jonnitto.AssetList:Component.Asset.Image {...props} />
+        </figure>
+        {props.beforeAction}
+        <Jonnitto.AssetList:Component.Action @key='action' {...props} />
+        {props.afterAction}
+    `
+}

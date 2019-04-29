@@ -1,0 +1,23 @@
+prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Neos:ContentComponent) {
+    contentElement = true
+
+    assets = ${q(node).property('assets')}
+    forceDownload = ${q(node).property('forceDownload')}
+    thumbnail = ${q(node).property('thumbnail')}
+    namespace = 'assets-list'
+    count = ${Type.isArray(this.assets) ? Array.length(this.assets) : false}
+    container = ${Configuration.setting('Jonnitto.AssetList.container')}
+    target = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
+    maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
+    type = ${this.thumbnail ? 'thumbnail' : 'text'}
+
+    renderer = afx`
+        <div @if.has={node.context.inBackend || props.count} class={[BEM.string(props.namespace, null, ['count-' + props.count, props.type])]}>
+            <Jonnitto.AssetList:Component.Collection {...props} />
+            <Carbon.Notification:Backend @if.noAssets={!props.count} content={Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')} />
+        </div>
+    `
+
+    @context.contentElement = ${this.contentElement}
+    @process.contentElementWrapping.@if.contentElementWrapping = ${contentElement}
+}

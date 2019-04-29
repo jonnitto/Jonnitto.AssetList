@@ -1,0 +1,35 @@
+prototype(Jonnitto.AssetList:Component.File) < prototype(Neos.Fusion:Component) {
+    asset = null
+    forceDownload = null
+    thumbnail = null
+    namespace = null
+    target = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
+    maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
+    type = ${this.thumbnail ? 'thumbnail' : 'text'}
+
+    @if.set = ${this.asset}
+
+    renderer = Neos.Fusion:Tag {
+        tagName = 'a'
+        attributes {
+            href = Neos.Fusion:ResourceUri {
+                @if.islive = ${node.context.live}
+                resource = ${props.asset.resource}
+            }
+            download = ${String.replace(props.asset.resource.filename, '.' + props.asset.resource.fileextension, '')}
+            download.@if.set = ${props.forceDownload && this.href}
+            target = ${props.target}
+            class = Carbon.Eel:BEM {
+                block = ${props.namespace}
+                element = 'link'
+                modifier = Neos.Fusion:DataStructure {
+                    fileextension = ${props.asset.resource.fileextension}
+                    type = ${props.type}
+                }
+            }
+        }
+        content = afx`
+            <Jonnitto.AssetList:Component.FileName {...props} />
+        `
+    }
+}

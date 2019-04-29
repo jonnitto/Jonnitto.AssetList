@@ -1,0 +1,21 @@
+prototype(Jonnitto.AssetList:Component.Action) < prototype(Neos.Fusion:Component) {
+    asset = null
+    forceDownload = null
+    
+    fileextension = ${this.asset.resource.fileextension}
+    caption = ${this.asset.caption}
+    action = ${Translation.translate(this.forceDownload ? 'file.download' : 'file.open', null, [String.toUpperCase(this.fileextension)], null, 'Jonnitto.AssetList')}
+    outputFileSize = true
+
+    modifier = null
+
+    @if.set = ${this.asset}
+    renderer = afx`
+        <span class={BEM.string(props.namespace, 'action', props.modifier)} @if.set={props.caption || props.action || props.outputFileSize}>
+            {props.action + ' ' + props.caption + ' '}
+            <small class={BEM.string(props.namespace, 'filesize', props.modifier)} @if.set={props.outputFileSize}>
+                <Jonnitto.AssetList:Component.Asset.FileSize asset={props.asset} />
+            </small>
+        </span>
+    `
+}

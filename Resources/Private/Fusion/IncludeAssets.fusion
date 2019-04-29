@@ -1,0 +1,4 @@
+prototype(Jonnitto.AssetList:IncludeAssets) < prototype(Carbon.IncludeAssets:Case) {
+    mixin = 'Jonnitto.AssetList:Mixin.IncludeAssets'
+    @if.set = ${Configuration.setting('Jonnitto.AssetList.includeCss')}
+}

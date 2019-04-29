@@ -3,7 +3,17 @@
     "type": "neos-plugin",
     "license": "MIT",
     "description": "A asset list node type for Neos.io",
-    "keywords": ["flow", "neos", "content", "assetlist"],
+    "keywords": [
+        "flow",
+        "neos",
+        "content",
+        "assetlist"
+    ],
+    "support": {
+        "issues": "https://github.com/jonnitto/Jonnitto.AssetList/issues",
+        "source": "https://github.com/jonnitto/Jonnitto.AssetList"
+    },
+    "homepage": "https://github.com/jonnitto/Jonnitto.AssetList",
     "authors": [
         {
             "name": "Jon Uhlmann",
@@ -13,16 +23,34 @@
         }
     ],
     "require": {
-        "neos/neos": "~3.0 || ~4.0",
-        "carbon/condition": "^1.1",
+        "neos/neos": "^4.2",
+        "neos/fusion-afx": "^1.2",
         "carbon/notification": "^1.2",
+        "carbon/includeassets": "^3.5",
+        "carbon/eel": "^1.5",
         "carbon/image": "^1.3 || ^2.0"
     },
     "conflict": {
         "jonnitto/nodetypes": "*"
     },
     "archive": {
-        "exclude": [".editorconfig", ".gitignore", ".github", ".gitattributes", "gulp.json", "package.json", "CODE_OF_CONDUCT.md"]
+        "exclude": [
+            ".editorconfig",
+            ".eslintignore",
+            ".eslintrc",
+            ".gitattributes",
+            ".gitignore",
+            ".github",
+            ".jshintrc",
+            ".nvmrc",
+            ".prettierignore",
+            ".prettierrc",
+            ".stylelintrc",
+            ".yarnclean",
+            "CODE_OF_CONDUCT.md",
+            "gulp_global.yaml",
+            "package.json"
+        ]
     },
     "autoload": {
         "psr-4": {

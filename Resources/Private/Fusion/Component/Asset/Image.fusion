@@ -1,0 +1,17 @@
+prototype(Jonnitto.AssetList:Component.Asset.Image) < prototype(Neos.Fusion:Component) {
+    asset = null
+    maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
+    namespace = null
+    modifier = null
+
+    renderer = Carbon.Image:Tag {
+        @if.set = ${props.asset}
+        @apply.props = ${props}
+        alternativeText = Jonnitto.AssetList:Component.Asset.Title {
+            asset = ${props.asset}
+        }
+        class = ${BEM.string(props.namespace, 'img', props.modifier)}
+        // Backward compatibility for Carbon.Image 1.x
+        additionalClass = ${this.class}
+    }
+}

@@ -1,0 +1,14 @@
+prototype(Jonnitto.AssetList:Component.FileName) < prototype(Neos.Fusion:Component) {
+    maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
+
+    // extension points
+    before = null
+    after = null
+
+    renderer = afx`
+        {props.before}
+        <Jonnitto.AssetList:Component.FileName.Thumbnail @if.set={props.thumbnail} {...props} />
+        <Jonnitto.AssetList:Component.FileName.Text @if.set={!props.thumbnail} {...props} />
+        {props.after}
+    `
+}

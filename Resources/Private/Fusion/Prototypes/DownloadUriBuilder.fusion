@@ -1,9 +1,0 @@
-prototype(Jonnitto.AssetList:DownloadUriBuilder) < prototype(Neos.Fusion:UriBuilder) {
-    package = 'Jonnitto.AssetList'
-    controller = 'Download'
-    action = 'download'
-    arguments {
-        resource = ${asset.resource}
-        filename = ${asset.resource.filename}
-    }
-}
