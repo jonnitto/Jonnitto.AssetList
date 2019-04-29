@@ -5,6 +5,7 @@ prototype(Jonnitto.AssetList:Component.File) < prototype(Neos.Fusion:Component) 
     namespace = null
     target = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
     maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
+    downloadFileName = null
     type = ${this.thumbnail ? 'thumbnail' : 'text'}
 
     @if.set = ${this.asset}
@@ -16,7 +17,7 @@ prototype(Jonnitto.AssetList:Component.File) < prototype(Neos.Fusion:Component) 
                 @if.islive = ${node.context.live}
                 resource = ${props.asset.resource}
             }
-            download = ${!!(props.forceDownload && this.href)}
+            download = ${Type.isString(props.downloadFileName) ? props.downloadFileName : !!(props.forceDownload && this.href)}
             target = ${props.target}
             class = Carbon.Eel:BEM {
                 block = ${props.namespace}
