@@ -11,11 +11,15 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Neos:ContentComponent) 
     maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
     type = ${this.thumbnail ? 'thumbnail' : 'text'}
 
+    @if.showItem = ${node.context.inBackend || this.count}
+
     renderer = afx`
-        <div @if.has={node.context.inBackend || props.count} class={[BEM.string(props.namespace, null, ['count-' + props.count, props.type])]}>
-            <Jonnitto.AssetList:Component.Collection {...props} />
-            <Carbon.Notification:Backend @if.noAssets={!props.count} content={Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')} />
-        </div>
+        <Carbon.Eel:Tag tagName={props.container ? 'div' : null} attributes.class={Type.isString(props.container) ? props.container : null}>
+            <div class={[BEM.string(props.namespace, null, ['count-' + props.count, props.type])]}>
+                <Jonnitto.AssetList:Component.Collection {...props} />
+                <Carbon.Notification:Backend @if.noAssets={!props.count} content={Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')} />
+            </div>
+        </Carbon.Eel:Tag>
     `
 
     @context.contentElement = ${this.contentElement}
