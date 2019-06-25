@@ -10,10 +10,11 @@ prototype(Jonnitto.AssetList:Component.Collection) < prototype(Neos.Fusion:Compo
 
     type = ${this.thumbnail ? 'thumbnail' : 'text'}
 
-    renderer = Neos.Fusion:Loop {
-        items = ${props.assets}
-        itemRenderer = afx`
-            <Carbon.Eel:Tag tagName={props.tagName} attributes.class={BEM.string(props.namespace, 'list', props.type)}>
+    @if.hasAssets = ${Type.isArray(this.assets) && Array.length(this.assets)}
+
+    renderer = afx`
+        <Carbon.Eel:Tag tagName={props.tagName} attributes.class={BEM.string(props.namespace, 'list', props.type)}>
+            <Neos.Fusion:Loop items={props.assets} @children='itemRenderer'>
                 <Carbon.Eel:Tag tagName={props.entryTagName} attributes.class={BEM.string(props.namespace, 'entry', props.type)}>
                     <Jonnitto.AssetList:Component.File
                         asset={item}
@@ -25,7 +26,7 @@ prototype(Jonnitto.AssetList:Component.Collection) < prototype(Neos.Fusion:Compo
                         maximumWidth={props.maximumWidth}
                     />
                 </Carbon.Eel:Tag>
-            </Carbon.Eel:Tag>
-        `
-    }
+            </Neos.Fusion:Loop>
+        </Carbon.Eel:Tag>
+    `
 }
