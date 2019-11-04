@@ -5,6 +5,7 @@ prototype(Jonnitto.AssetList:File) < prototype(TYPO3.TypoScript:Tag) {
             fileextension = ${namespace + '--type-' + asset.resource.fileextension}
             type = ${namespace + '--item-' + (thumbnail ? 'thumbnail' : 'text')}
         }
+        download = ${forceDownload ? asset.resource.filename : false}
         target = TYPO3.TypoScript:Case {
             isForceDownload {
                 condition = ${forceDownload}
@@ -19,18 +20,8 @@ prototype(Jonnitto.AssetList:File) < prototype(TYPO3.TypoScript:Tag) {
                 renderer = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
             }
         }
-        href = TYPO3.TypoScript:Case {
-            @if.islive = ${node.context.live}
-            forceDownload {
-                condition = ${forceDownload}
-                renderer = Jonnitto.AssetList:DownloadUriBuilder
-            }
-            default {
-                condition = true
-                renderer = TYPO3.TypoScript:ResourceUri {
-                    resource = ${asset.resource}
-                }
-            }
+        href = TYPO3.TypoScript:ResourceUri {
+            resource = ${asset.resource}
         }
     }
     content = TYPO3.TypoScript:Case {

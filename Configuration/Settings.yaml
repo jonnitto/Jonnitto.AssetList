@@ -24,7 +24,3 @@ TYPO3:
     typoScript:
       autoInclude:
         Jonnitto.AssetList: true
-  Flow:
-    mvc:
-      routes:
-        'Jonnitto.AssetList': true
