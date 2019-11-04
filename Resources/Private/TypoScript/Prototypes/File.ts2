@@ -5,7 +5,6 @@ prototype(Jonnitto.AssetList:File) < prototype(TYPO3.TypoScript:Tag) {
             fileextension = ${namespace + '--type-' + asset.resource.fileextension}
             type = ${namespace + '--item-' + (thumbnail ? 'thumbnail' : 'text')}
         }
-        download = ${forceDownload ? asset.resource.filename : false}
         target = TYPO3.TypoScript:Case {
             isForceDownload {
                 condition = ${forceDownload}
@@ -21,8 +20,10 @@ prototype(Jonnitto.AssetList:File) < prototype(TYPO3.TypoScript:Tag) {
             }
         }
         href = TYPO3.TypoScript:ResourceUri {
+            @if.islive = ${node.context.live}
             resource = ${asset.resource}
         }
+        download = ${node.context.live && forceDownload ? true : false} 
     }
     content = TYPO3.TypoScript:Case {
         hasThumbnail {
