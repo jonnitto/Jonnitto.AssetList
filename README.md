@@ -1,21 +1,14 @@
-[![Latest Stable Version](https://poser.pugx.org/jonnitto/assetlist/v/stable)](https://packagist.org/packages/jonnitto/assetlist)
-[![Total Downloads](https://poser.pugx.org/jonnitto/assetlist/downloads)](https://packagist.org/packages/jonnitto/assetlist)
-[![License](https://poser.pugx.org/jonnitto/assetlist/license)](https://packagist.org/packages/jonnitto/assetlist)
-[![GitHub forks](https://img.shields.io/github/forks/jonnitto/Jonnitto.AssetList.svg?style=social&label=Fork)](https://github.com/jonnitto/Jonnitto.AssetList/fork)
-[![GitHub stars](https://img.shields.io/github/stars/jonnitto/Jonnitto.AssetList.svg?style=social&label=Stars)](https://github.com/jonnitto/Jonnitto.AssetList/stargazers)
-[![GitHub watchers](https://img.shields.io/github/watchers/jonnitto/Jonnitto.AssetList.svg?style=social&label=Watch)](https://github.com/jonnitto/Jonnitto.AssetList/subscription)
-[![GitHub followers](https://img.shields.io/github/followers/jonnitto.svg?style=social&label=Follow)](https://github.com/jonnitto/followers)
-[![Follow Jon on Twitter](https://img.shields.io/twitter/follow/jonnitto.svg?style=social&label=Follow)](https://twitter.com/jonnitto)
+[![Latest stable version]][packagist] [![Total downloads]][packagist] [![License]][packagist] [![GitHub forks]][fork] [![GitHub stars]][stargazers] [![GitHub watchers]][subscription] [![GitHub followers]][followers] [![Follow Jon on Twitter]][twitter]
 
 # Jonnitto.AssetList
 
-A asset list node type for [Neos](https://www.neos.io).
+A asset list node type for [Neos].
 
-| Version | Neos        |
-| ------- | ----------- |
-| 1.\*    | 2.\*        |
-| > 2.2   | 3.\* + 4.\* |
-| > 3.\*  | ^4.2        |
+| Version | Neos        | Maintained |
+| ------- | ----------- | :--------: |
+| 1.\*    | 2.\*        |     ✗      |
+| > 2.2   | 3.\* + 4.\* |     ✗      |
+| > 3.\*  | ^4.2 - 7.\* |     ✓      |
 
 ## Installation
 
@@ -35,4 +28,21 @@ The --no-update command prevent the automatic update of the dependencies. After 
 
 ## License
 
-Licensed under MIT, see [LICENSE](LICENSE)
+Licensed under MIT, see [LICENSE]
+
+[neos]: https://www.neos.io
+[packagist]: https://packagist.org/packages/jonnitto/assetlist
+[latest stable version]: https://poser.pugx.org/jonnitto/assetlist/v/stable
+[total downloads]: https://poser.pugx.org/jonnitto/assetlist/downloads
+[license]: https://poser.pugx.org/jonnitto/assetlist/license
+[github forks]: https://img.shields.io/github/forks/jonnitto/Jonnitto.AssetList.svg?style=social&label=Fork
+[github stars]: https://img.shields.io/github/stars/jonnitto/Jonnitto.AssetList.svg?style=social&label=Stars
+[github watchers]: https://img.shields.io/github/watchers/jonnitto/Jonnitto.AssetList.svg?style=social&label=Watch
+[github followers]: https://img.shields.io/github/followers/jonnitto.svg?style=social&label=Follow
+[follow jon on twitter]: https://img.shields.io/twitter/follow/jonnitto.svg?style=social&label=Follow
+[twitter]: https://twitter.com/jonnitto
+[fork]: https://github.com/jonnitto/Jonnitto.AssetList/fork
+[stargazers]: https://github.com/jonnitto/Jonnitto.AssetList/stargazers
+[subscription]: https://github.com/jonnitto/Jonnitto.AssetList/subscription
+[followers]: https://github.com/jonnitto/followers
+[license]: LICENSE
