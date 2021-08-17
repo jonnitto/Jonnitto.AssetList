@@ -15,7 +15,7 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Neos:ContentComponent) 
 
     renderer = afx`
         <Carbon.Eel:Tag tagName={props.container ? 'div' : null} attributes.class={Type.isString(props.container) ? props.container : null}>
-            <div class={[BEM.string(props.namespace, null, ['count-' + props.count, props.type])]}>
+            <div class={[BEM.modifier(props.namespace, ['count-' + props.count, props.type])]}>
                 <Jonnitto.AssetList:Component.Collection {...props} />
                 <Carbon.Notification:Backend @if.noAssets={!props.count} content={Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')} />
             </div>
