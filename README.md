@@ -2,7 +2,7 @@
 
 # Jonnitto.AssetList
 
-A asset list node type for [Neos].
+An asset list node type for [Neos].
 
 | Version | Neos        | Maintained |
 | ------- | ----------- | :--------: |
