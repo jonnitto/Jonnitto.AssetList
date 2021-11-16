@@ -7,6 +7,7 @@ prototype(Jonnitto.AssetList:Component.Asset.Image) < prototype(Neos.Fusion:Comp
     renderer = Carbon.Image:Tag {
         @if.set = ${props.asset}
         @apply.props = ${props}
+        figureTagName = false
         alternativeText = Jonnitto.AssetList:Component.Asset.Title {
             asset = ${props.asset}
         }
