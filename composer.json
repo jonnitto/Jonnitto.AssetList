@@ -1,7 +1,7 @@
 {
     "name": "jonnitto/assetlist",
     "type": "neos-plugin",
-    "license": "MIT",
+    "license": "GPL-3.0",
     "description": "A asset list node type for Neos.io",
     "keywords": [
         "flow",
