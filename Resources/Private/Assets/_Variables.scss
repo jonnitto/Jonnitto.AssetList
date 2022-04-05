@@ -1,9 +1,9 @@
 $asset-list: () !default;
 $asset-list: map-merge(
   (
-    "action-font-size": 12px,
+    "action-font-size": 0.75rem,
     "thumbnail-gutter": 15px,
-    "thumbnail-ratio": 4/3,
+    "thumbnail-ratio": calc(4 / 3),
     "thumbnail-center": false
   ),
   $asset-list

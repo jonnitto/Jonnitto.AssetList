@@ -46,7 +46,7 @@
     $ratio: asset-list("thumbnail-ratio");
 
     content: "";
-    padding-top: percentage(1 / $ratio);
+    padding-top: calc(1 / $ratio);
     display: block;
   }
 }
