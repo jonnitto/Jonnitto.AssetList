@@ -8,7 +8,8 @@ An asset list node type for [Neos].
 | ------- | ----------- | :--------: |
 | 1.\*    | 2.\*        |     ✗      |
 | > 2.2   | 3.\* + 4.\* |     ✗      |
-| > 3.\*  | ^4.2 - 7.\* |     ✓      |
+| > 3.\*  | ^4.2 - 7.\* |     ✗      |
+| > 4.\*  | ^5.3 - 8.\* |     ✓      |
 
 ## Installation
 
@@ -18,17 +19,8 @@ Most of the time you have to make small adjustments to a package (e.g. configura
 composer require jonnitto/assetlist --no-update
 ```
 
-To install the package under Neos 2.\* you have to enter
-
-```bash
-composer require "jonnitto/assetlist:^1.0" --no-update
-```
-
 The --no-update command prevent the automatic update of the dependencies. After the package was added to your theme composer.json, go back to the root of the Neos installation and run composer update. Et voilà! Your desired package is now installed correctly.
 
-## License
-
-Licensed under MIT, see [LICENSE]
 
 [neos]: https://www.neos.io
 [packagist]: https://packagist.org/packages/jonnitto/assetlist

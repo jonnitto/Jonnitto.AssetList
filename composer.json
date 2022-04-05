@@ -23,8 +23,8 @@
         }
     ],
     "require": {
-        "neos/neos": "^5.3 || ^7.0",
-        "neos/fusion-afx": "^1.2 || ^7.0",
+        "neos/neos": "^5.3 || ^7.0 || ^8.0",
+        "neos/fusion-afx": "^1.2 || ^7.0 || ^8.0",
         "carbon/notification": "^2.0",
         "carbon/includeassets": "^4.0 || ^5.0",
         "carbon/eel": "^1.5 || ^2.0",
@@ -46,10 +46,9 @@
             ".prettierignore",
             ".prettierrc",
             ".stylelintrc",
-            ".yarnclean",
             "CODE_OF_CONDUCT.md",
-            "gulp_global.yaml",
-            "package.json"
+            "package.json",
+            "pnpm-lock.yaml"
         ]
     },
     "autoload": {
