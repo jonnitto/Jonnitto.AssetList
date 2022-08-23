@@ -26,7 +26,7 @@
         "neos/neos": "^5.3 || ^7.0 || ^8.0",
         "neos/fusion-afx": "^1.2 || ^7.0 || ^8.0",
         "carbon/notification": "^2.0",
-        "carbon/includeassets": "^4.0 || ^5.0",
+        "carbon/includeassets": "^4.0 || ^5.0 || ^6.0",
         "carbon/eel": "^1.5 || ^2.0",
         "carbon/image": "^2.0 || ^3.0"
     },
