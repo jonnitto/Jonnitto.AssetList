@@ -2,8 +2,8 @@ prototype(Jonnitto.AssetList:Component.FileName) < prototype(Neos.Fusion:Compone
     maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
 
     // extension points
-    before = null
-    after = null
+    before = ${null}
+    after = ${null}
 
     renderer = afx`
         {props.before}

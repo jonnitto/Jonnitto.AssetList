@@ -1,8 +1,8 @@
 prototype(Jonnitto.AssetList:Component.Asset.Image) < prototype(Neos.Fusion:Component) {
-    asset = null
+    asset = ${null}
     maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
-    namespace = null
-    modifier = null
+    namespace = ${null}
+    modifier = ${null}
 
     renderer = Carbon.Image:Tag {
         @if.set = ${props.asset}

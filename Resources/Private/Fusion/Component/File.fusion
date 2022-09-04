@@ -1,11 +1,11 @@
 prototype(Jonnitto.AssetList:Component.File) < prototype(Neos.Fusion:Component) {
-    asset = null
-    forceDownload = null
-    thumbnail = null
-    namespace = null
+    asset = ${null}
+    forceDownload = ${null}
+    thumbnail = ${null}
+    namespace = ${null}
     target = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
     maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
-    downloadFileName = null
+    downloadFileName = ${null}
     type = ${this.thumbnail ? 'thumbnail' : 'text'}
 
     @if.set = ${this.asset}

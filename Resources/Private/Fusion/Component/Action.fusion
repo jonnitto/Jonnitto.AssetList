@@ -1,13 +1,13 @@
 prototype(Jonnitto.AssetList:Component.Action) < prototype(Neos.Fusion:Component) {
-    asset = null
-    forceDownload = null
-    
+    asset = ${null}
+    forceDownload = ${null}
+
     fileextension = ${this.asset.resource.fileextension}
     caption = ${this.asset.caption}
     action = ${Translation.translate(this.forceDownload ? 'file.download' : 'file.open', this.forceDownload ? 'Download {0}' : 'Open {0}', [String.toUpperCase(this.fileextension)], 'Main', 'Jonnitto.AssetList')}
     outputFileSize = true
 
-    modifier = null
+    modifier = ${null}
 
     @if.set = ${this.asset}
     renderer = afx`

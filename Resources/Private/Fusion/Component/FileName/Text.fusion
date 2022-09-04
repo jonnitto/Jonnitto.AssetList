@@ -1,11 +1,11 @@
 prototype(Jonnitto.AssetList:Component.FileName.Text) < prototype(Neos.Fusion:Component) {
     tagName = ${Configuration.setting('Jonnitto.AssetList.text.headlineTag')}
-    modifier = null
+    modifier = ${null}
 
     // extension points
-    beforeHeadline = null
-    beforeAction = null
-    afterAction = null
+    beforeHeadline = ${null}
+    beforeAction = ${null}
+    afterAction = ${null}
 
     @if.hasAsset = ${this.asset}
     renderer = afx`

@@ -1,12 +1,12 @@
 prototype(Jonnitto.AssetList:Component.FileName.Thumbnail) < prototype(Neos.Fusion:Component) {
     tagName = ${Configuration.setting('Jonnitto.AssetList.thumbnail.headlineTag')}
-    modifier = null
+    modifier = ${null}
 
     // extension points
-    beforeHeadline = null
-    beforeImage = null
-    beforeAction = null
-    afterAction = null
+    beforeHeadline = ${null}
+    beforeImage = ${null}
+    beforeAction = ${null}
+    afterAction = ${null}
 
     @if.hasAsset = ${this.asset}
     renderer = afx`

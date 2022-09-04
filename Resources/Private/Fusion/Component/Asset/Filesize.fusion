@@ -1,5 +1,5 @@
 prototype(Jonnitto.AssetList:Component.Asset.FileSize) < prototype(Neos.Fusion:Component) {
-    asset = null
+    asset = ${null}
     filesize = ${this.asset ? this.asset.resource.filesize : null}
     byteUnits = ${[' B', ' kB', ' MB', ' GB', ' TB']}
     roundUnits = ${[0, 0, 1, 2, 2]}

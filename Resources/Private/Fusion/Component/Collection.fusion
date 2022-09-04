@@ -1,8 +1,8 @@
 prototype(Jonnitto.AssetList:Component.Collection) < prototype(Neos.Fusion:Component) {
-    assets = null
-    forceDownload = null
-    thumbnail = null
-    namespace = null
+    assets = ${null}
+    forceDownload = ${null}
+    thumbnail = ${null}
+    namespace = ${null}
     tagName = 'ul'
     entryTagName = 'li'
     target = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
