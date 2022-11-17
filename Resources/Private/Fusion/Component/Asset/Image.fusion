@@ -4,15 +4,15 @@ prototype(Jonnitto.AssetList:Component.Asset.Image) < prototype(Neos.Fusion:Comp
     namespace = ${null}
     modifier = ${null}
 
-    renderer = Carbon.Image:Tag {
+    renderer = Neos.Neos:ImageTag {
         @if.set = ${props.asset}
-        @apply.props = ${props}
-        figureTagName = false
-        alternativeText = Jonnitto.AssetList:Component.Asset.Title {
-            asset = ${props.asset}
+        maximumWidth = ${props.maximumWidth}
+        asset = ${props.asset}
+        attributes {
+            class = ${BEM.string(props.namespace, 'img', props.modifier)}
+            alt = Jonnitto.AssetList:Component.Asset.Title {
+                asset = ${props.asset}
+            }
         }
-        class = ${BEM.string(props.namespace, 'img', props.modifier)}
-        // Backward compatibility for Carbon.Image 1.x
-        additionalClass = ${this.class}
     }
 }
