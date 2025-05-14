@@ -1,0 +1,11 @@
+Carbon:
+  IncludeAssets:
+    Packages:
+      'Jonnitto.AssetList':
+        Package: 'Jonnitto.AssetList'
+        ConditionPrototype: 'Jonnitto.AssetList:IncludeAssets'
+        Path:
+          File:
+            CSS: 'Public'
+        General:
+          Head: Main.css

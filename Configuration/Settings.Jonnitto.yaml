@@ -1,0 +1,10 @@
+Jonnitto:
+  AssetList:
+    includeCss: true
+    container: false
+    externalTarget: _blank
+    text:
+      headlineTag: strong
+    thumbnail:
+      headlineTag: strong
+      maximumWidth: 400

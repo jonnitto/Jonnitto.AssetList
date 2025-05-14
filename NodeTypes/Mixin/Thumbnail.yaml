@@ -1,0 +1,14 @@
+'Jonnitto.AssetList:Mixin.Thumbnail':
+  abstract: true
+  superTypes:
+    'Jonnitto.AssetList:Mixin.Group': true
+  properties:
+    thumbnail:
+      type: boolean
+      defaultValue: true
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: resources
+          position: 30

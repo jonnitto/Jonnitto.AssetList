@@ -1,0 +1,13 @@
+'Jonnitto.AssetList:Mixin.ForceDownload':
+  abstract: true
+  superTypes:
+    'Jonnitto.AssetList:Mixin.Group': true
+  properties:
+    forceDownload:
+      type: boolean
+      defaultValue: true
+      ui:
+        label: i18n
+        inspector:
+          group: resources
+          position: 20

@@ -1,0 +1,3 @@
+'Jonnitto.AssetList:Mixin.BackendLabel':
+  abstract: true
+  label: "${Neos.Node.labelForNode(node).postfix(q(node).property('assets') ? ' [' + Array.length(q(node).property('assets')) + ']' : '')}"

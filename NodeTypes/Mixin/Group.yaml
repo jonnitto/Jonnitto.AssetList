@@ -1,0 +1,9 @@
+'Jonnitto.AssetList:Mixin.Group':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        resources:
+          label: i18n
+          position: 5
+          icon: 'fas fa-file-download'

@@ -1,0 +1,14 @@
+Neos:
+  Media:
+    thumbnailGenerators:
+      Neos\Media\Domain\Model\ThumbnailGenerator\DocumentThumbnailGenerator:
+        resolution: 300
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          Jonnitto.AssetList:
+            - 'NodeTypes/*'
+    fusion:
+      autoInclude:
+        Jonnitto.AssetList: true
