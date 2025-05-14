@@ -1,7 +1,5 @@
-@use "Variables";
-
 .assets-list {
-  margin-top: 0;
+  --asset-list-font-size: 0.75rem;
 }
 
 .assets-list__list,
@@ -43,6 +41,6 @@
 }
 
 .assets-list__action {
-  font-size: Variables.asset-list(action-font-size);
+  font-size: var(--asset-list-font-size);
   display: block;
 }

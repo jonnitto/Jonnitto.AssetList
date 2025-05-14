@@ -1,0 +1,57 @@
+.assets-list--thumbnail {
+  --asset-list-max-col-count: 5;
+  --asset-list-min-col-size: 300px;
+  --asset-list-gap-x: 1rem;
+  --asset-list-gap-y: 2rem;
+  --asset-list-ratio: 4 / 3;
+  --asset-list-fit: contain;
+  --asset-list-align: left;
+
+  /* calculations, do not touch */
+  --asset-list-col-size-calc: calc(
+    (100% - var(--asset-list-gap-x) * var(--asset-list-max-col-count)) /
+      var(--asset-list-max-col-count)
+  );
+  --asset-list-col-min-size-calc: min(
+    100%,
+    max(var(--asset-list-min-col-size), var(--asset-list-col-size-calc))
+  );
+}
+
+.assets-list__list--thumbnail {
+  display: grid;
+  gap: var(--asset-list-gap-y) var(--asset-list-gap-x);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(var(--asset-list-col-min-size-calc), 1fr)
+  );
+  text-align: var(--asset-list-align);
+}
+
+.assets-list__entry--thumbnail {
+  padding: 0;
+  margin: 0;
+}
+
+.assets-list__link--thumbnail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.assets-list__figure {
+  display: block;
+  aspect-ratio: var(--asset-list-ratio);
+  overflow: hidden;
+}
+
+.assets-list__img {
+  display: block;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  object-fit: var(--asset-list-fit);
+  object-position: var(--asset-list-align);
+}

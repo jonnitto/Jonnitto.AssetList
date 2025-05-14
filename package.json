@@ -13,10 +13,10 @@
     "url": "https://github.com/jonnitto/Jonnitto.AssetList.git"
   },
   "scripts": {
-    "start": "sass Resources/Private/Assets/Main.scss Resources/Public/Main.css && cssnano Resources/Public/Main.css Resources/Public/Main.css --autoprefixer.add true --autoprefixer.browsers: 'not dead' --no-zindex --discardComments.removeAll true"
+    "build": "lightningcss --minify --bundle --targets \">= 0.25%\" Resources/Private/Assets/Main.css -o Resources/Public/Main.css",
+    "dev": "lightningcss --bundle --targets \">= 0.25%\" Resources/Private/Assets/Main.css -o Resources/Public/Main.css"
   },
-  "dependencies": {
-    "cssnano-cli": "^1.0.5",
-    "sass": "^1.88.0"
+  "devDependencies": {
+    "lightningcss-cli": "^1.30.1"
   }
 }
