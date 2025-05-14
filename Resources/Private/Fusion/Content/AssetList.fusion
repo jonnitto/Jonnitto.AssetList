@@ -5,19 +5,24 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Neos:ContentComponent) 
     forceDownload = ${q(node).property('forceDownload')}
     thumbnail = ${q(node).property('thumbnail')}
     namespace = 'assets-list'
-    count = ${Type.isArray(this.assets) ? Array.length(this.assets) : false}
+    count = ${Carbon.Array.length(this.assets)}
     container = ${Configuration.setting('Jonnitto.AssetList.container')}
     target = ${Configuration.setting('Jonnitto.AssetList.externalTarget')}
     maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
     type = ${this.thumbnail ? 'thumbnail' : 'text'}
 
-    @if.showItem = ${node.context.inBackend || this.count}
-
     renderer = afx`
-        <Carbon.Eel:Tag tagName={props.container ? 'div' : null} attributes.class={Type.isString(props.container) ? props.container : null}>
+        <Carbon.Notification:Backend
+            @if={!props.count}
+            content={Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')}
+        />
+        <Carbon.Eel:Tag
+            @if={props.count}
+            tagName={props.container ? 'div' : null}
+            attributes.class={Type.isString(props.container) ? props.container : null}
+        >
             <div class={[BEM.modifier(props.namespace, ['count-' + props.count, props.type])]}>
                 <Jonnitto.AssetList:Component.Collection {...props} />
-                <Carbon.Notification:Backend @if.noAssets={!props.count} content={Translation.translate('content.emptyAssetList', null, [], 'NodeTypes/AssetList', 'Jonnitto.AssetList')} />
             </div>
         </Carbon.Eel:Tag>
     `
