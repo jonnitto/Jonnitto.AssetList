@@ -1,5 +1,6 @@
+@use "sass:map";
 $asset-list: () !default;
-$asset-list: map-merge(
+$asset-list: map.merge(
   (
     "action-font-size": 0.75rem,
     "thumbnail-gutter": 15px,
@@ -10,5 +11,5 @@ $asset-list: map-merge(
 );
 
 @function asset-list($key) {
-  @return map-get($asset-list, $key);
+  @return map.get($asset-list, $key);
 }

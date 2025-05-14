@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "cssnano-cli": "^1.0.5",
-    "sass": "^1.49.11"
+    "sass": "^1.88.0"
   }
 }

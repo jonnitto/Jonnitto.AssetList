@@ -1,4 +1,6 @@
-@if asset-list("thumbnail-center") {
+@use "Variables";
+
+@if Variables.asset-list("thumbnail-center") {
   .assets-list--thumbnail {
     text-align: center;
   }
@@ -9,15 +11,15 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: stretch;
-  margin-left: -#{asset-list(thumbnail-gutter)};
-  margin-right: -#{asset-list(thumbnail-gutter)};
+  margin-left: -#{Variables.asset-list(thumbnail-gutter)};
+  margin-right: -#{Variables.asset-list(thumbnail-gutter)};
 }
 
 .assets-list__entry--thumbnail {
-  padding: 0 asset-list(thumbnail-gutter) #{asset-list(thumbnail-gutter) * 2};
+  padding: 0 Variables.asset-list(thumbnail-gutter) #{Variables.asset-list(thumbnail-gutter) * 2};
   flex: 0 0 100%;
   max-width: 100%;
-  margin-bottom: asset-list(thumbnail-gutter) * 4;
+  margin-bottom: Variables.asset-list(thumbnail-gutter) * 4;
 
   @media (min-width: 420px) {
     flex: 0 0 50%;
@@ -43,7 +45,7 @@
   overflow: hidden;
 
   &::before {
-    $ratio: asset-list("thumbnail-ratio");
+    $ratio: Variables.asset-list("thumbnail-ratio");
 
     content: "";
     padding-top: calc(1 / $ratio);
@@ -60,7 +62,7 @@
   width: auto;
   height: auto;
 
-  @if asset-list("thumbnail-center") {
+  @if Variables.asset-list("thumbnail-center") {
     left: 50%;
     transform: translate(-50%, -50%);
   } @else {
