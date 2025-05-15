@@ -14,7 +14,7 @@ prototype(Jonnitto.AssetList:Component.File) < prototype(Neos.Fusion:Component) 
         tagName = 'a'
         attributes {
             href = Neos.Fusion:ResourceUri {
-                @if.islive = ${node.context.live}
+                @if.islive = ${Carbon.Version.lowerThanNine() ? !node.context.inBackend : !renderingMode.isEdit}
                 resource = ${props.asset.resource}
             }
             download = ${Type.isString(props.downloadFileName) ? props.downloadFileName : !!(props.forceDownload && this.href)}
