@@ -10,11 +10,11 @@ prototype(Jonnitto.AssetList:Component.FileName.Text) < prototype(Neos.Fusion:Co
     @if.hasAsset = ${this.asset}
     renderer = afx`
         {props.beforeHeadline}
-        <Neos.Fusion:Tag @key='headline' tagName={props.tagName} attributes.class={BEM.string(props.namespace, 'headline', props.modifier)}>
+        <Neos.Fusion:Tag @key='headline' tagName={props.tagName} attributes.class={BEM.string(props.namespace, 'headline', ['text', props.modifier])}>
             <Jonnitto.AssetList:Component.Asset.Title asset={props.asset} />
         </Neos.Fusion:Tag>
         {props.beforeAction}
-        <Jonnitto.AssetList:Component.Action @key='action' {...props} />
+        <Jonnitto.AssetList:Component.Action @key='action' {...props} modifier={['text', props.modifier]} />
         {props.afterAction}
     `
 }

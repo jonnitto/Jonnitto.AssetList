@@ -11,7 +11,7 @@ prototype(Jonnitto.AssetList:Component.FileName.Thumbnail) < prototype(Neos.Fusi
     @if.hasAsset = ${this.asset}
     renderer = afx`
         {props.beforeHeadline}
-        <Neos.Fusion:Tag @key='headline' tagName={props.tagName} attributes.class={BEM.string(props.namespace, 'headline', props.modifier)}>
+        <Neos.Fusion:Tag @key='headline' tagName={props.tagName} attributes.class={BEM.string(props.namespace, 'headline', ['thumbnail', props.modifier])}>
             <Jonnitto.AssetList:Component.Asset.Title asset={props.asset} />
         </Neos.Fusion:Tag>
         {props.beforeImage}
@@ -19,7 +19,7 @@ prototype(Jonnitto.AssetList:Component.FileName.Thumbnail) < prototype(Neos.Fusi
             <Jonnitto.AssetList:Component.Asset.Image {...props} />
         </figure>
         {props.beforeAction}
-        <Jonnitto.AssetList:Component.Action @key='action' {...props} />
+        <Jonnitto.AssetList:Component.Action @key='action' {...props} modifier={['thumbnail', props.modifier]} />
         {props.afterAction}
     `
 }
