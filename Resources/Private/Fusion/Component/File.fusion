@@ -19,14 +19,7 @@ prototype(Jonnitto.AssetList:Component.File) < prototype(Neos.Fusion:Component) 
             }
             download = ${Type.isString(props.downloadFileName) ? props.downloadFileName : !!(props.forceDownload && this.href)}
             target = ${props.target}
-            class = Carbon.Eel:BEM {
-                block = ${props.namespace}
-                element = 'link'
-                modifier = Neos.Fusion:DataStructure {
-                    fileextension = ${props.asset.resource.fileextension}
-                    type = ${props.type}
-                }
-            }
+            class = ${BEM.string(props.namespace, 'link', [props.type, props.asset.resource.fileextension])}
         }
         content = afx`
             <Jonnitto.AssetList:Component.FileName {...props} />
