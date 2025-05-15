@@ -11,6 +11,8 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Neos:ContentComponent) 
     maximumWidth = ${Configuration.setting('Jonnitto.AssetList.thumbnail.maximumWidth')}
     type = ${this.thumbnail ? 'thumbnail' : 'text'}
 
+    attributes = Neos.Fusion:DataStructure
+
     renderer = afx`
         <Carbon.Notification:Backend
             @if={!props.count}
@@ -21,7 +23,7 @@ prototype(Jonnitto.AssetList:AssetList) < prototype(Neos.Neos:ContentComponent) 
             tagName={props.container ? 'div' : null}
             attributes.class={Type.isString(props.container) ? props.container : null}
         >
-            <div class={[BEM.modifier(props.namespace, ['count-' + props.count, props.type])]}>
+            <div {...props.attributes} class={Carbon.String.classNames(BEM.modifier(props.namespace, ['count-' + props.count, props.type]), props.attributes.class)}>
                 <Jonnitto.AssetList:Component.Collection {...props} />
             </div>
         </Carbon.Eel:Tag>
